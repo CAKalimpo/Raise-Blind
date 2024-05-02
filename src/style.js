@@ -6,12 +6,9 @@ export const styles = {
       alignItems: 'center',
     },
     card: {
-      marginTop: 10,
       backgroundColor: 'white',
       padding: 10,
       width: '100%',
-      borderWidth: 0.8,
-      borderColor: '#008DDA',
     },
     rowContainer: {
       flexDirection: 'row',
@@ -41,7 +38,7 @@ export const styles = {
     bottomText: {
       fontFamily: Fonts.ISM,
       color: '#008DDA',
-      marginTop: 10,
+      marginTop: 5,
     },
     arrowR: {
       margin: 5,
@@ -50,5 +47,11 @@ export const styles = {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-    }
+    },
+    raiseBlindContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 10,
+      alignItems: 'center',
+    },
 }

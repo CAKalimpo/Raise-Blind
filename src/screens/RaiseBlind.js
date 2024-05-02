@@ -4,15 +4,18 @@ import arrowRight from '../imgs/arrow.png';
 import { styles } from '../style';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+const RaiseBlind = ({ navigation }) => {
+  const [raiseBlind, setRaiseBlind] = React.useState(false);
+  const [raiseBlindInterval, setRaiseBlindInterval] = React.useState(0);
 
-const RaiseBlind = ({navigation}) => {
-  const [raiseBlind, isRaiseBlind] = React.useState(false);
-  const toggleBlind = () => isRaiseBlind(previousState => !previousState);
-
+  const toggleBlind = () => setRaiseBlind(previousState => !previousState);
 
   const navigateBlinds = () => {
-    navigation.navigate('Blinds Structure')
-  }
+    navigation.navigate('Blinds Structure', {
+      raiseBlind: raiseBlind,
+      raiseBlindInterval: raiseBlindInterval
+    });
+  };
 
   return (
     <View style={styles.container}>
@@ -39,20 +42,22 @@ const RaiseBlind = ({navigation}) => {
             minimumTrackTintColor="#008DDA"
             maximumTrackTintColor="#000000"
             thumbTintColor="#008DDA"
-            step={2} 
-            thumbImage={require('../imgs/chips.png')}
+            step={2}
+            thumbImage={arrowRight}
+            onValueChange={value => setRaiseBlindInterval(value)}
           />
         </View>
         <TouchableOpacity onPress={navigateBlinds}>
-        <View style={styles.bottomView}>
-          <Text style={styles.bottomText}>
-            Blind Structure
-          <Image source={arrowRight}/>
-          </Text>
-        </View>
+          <View style={styles.bottomView}>
+            <Text style={styles.bottomText}>
+              Blinds Structure
+              <Image source={arrowRight} />
+            </Text>
+          </View>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
+
 export default RaiseBlind;
