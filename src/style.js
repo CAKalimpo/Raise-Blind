@@ -30,6 +30,19 @@ export const styles = {
     slider: {
       width: '100%',
     },
+    sliderFrontContainer: {
+      height: 5,
+      borderRadius: 10,
+      backgroundColor: '#008DDA',
+      margin: 15,
+    },
+    sliderBackContainer: {
+      height: 5,
+      borderRadius: 10,
+      backgroundColor: '#008DDA',
+      margin: 15,
+      position: 'absolute',
+    },
     bottomView: {
       justifyContent: 'center',
       alignItems: 'center',
@@ -38,20 +51,33 @@ export const styles = {
     bottomText: {
       fontFamily: Fonts.ISM,
       color: '#008DDA',
-      marginTop: 5,
     },
     arrowR: {
-      margin: 5,
+      marginRight:15,
     },
     blindButton: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
     },
-    raiseBlindContainer: {
+    BlindContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       padding: 10,
       alignItems: 'center',
     },
+    BlindStructure: {
+      flex: 1,
+      backgroundColor: '#E3E1D9',
+    },
+    thumb: {
+      left: -8,
+      top: -8,
+      width: 20,
+      height: 20,
+      backgroundColor: 'white',
+      borderColor: '#008DDA',
+      borderWidth: 5,
+      borderRadius: 10,
+    }
 }

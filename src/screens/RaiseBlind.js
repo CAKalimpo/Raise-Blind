@@ -43,15 +43,16 @@ const RaiseBlind = ({ navigation }) => {
             maximumTrackTintColor="#000000"
             thumbTintColor="#008DDA"
             step={2}
-            thumbImage={arrowRight}
             onValueChange={value => setRaiseBlindInterval(value)}
+            thumbImage={require('../imgs/chips.png')}
+            thumbStyle={styles.thumb}
           />
         </View>
         <TouchableOpacity onPress={navigateBlinds}>
           <View style={styles.bottomView}>
             <Text style={styles.bottomText}>
               Blinds Structure
-              <Image source={arrowRight} />
+              <Image source={arrowRight} style={styles.arrowR}/>
             </Text>
           </View>
         </TouchableOpacity>
