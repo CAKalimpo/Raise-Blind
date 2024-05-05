@@ -22,26 +22,17 @@ export const styles = {
       flexDirection: 'row',
       justifyContent: 'space-between',
       padding: 15,
+
     },
     number: {
-      fontSize: 12,
+      fontSize: 13,
       fontFamily: Fonts.ISM,
     },
     slider: {
-      width: '100%',
-    },
-    sliderFrontContainer: {
-      height: 5,
-      borderRadius: 10,
-      backgroundColor: '#008DDA',
-      margin: 15,
-    },
-    sliderBackContainer: {
-      height: 5,
-      borderRadius: 10,
-      backgroundColor: '#008DDA',
-      margin: 15,
-      position: 'absolute',
+      width: '95%',
+      padding: 10,
+      marginLeft: 12,
+      height: 3,
     },
     bottomView: {
       justifyContent: 'center',
@@ -50,7 +41,7 @@ export const styles = {
     },
     bottomText: {
       fontFamily: Fonts.ISM,
-      color: '#008DDA',
+      color: '#0099ff',
     },
     arrowR: {
       marginRight:15,
@@ -70,14 +61,13 @@ export const styles = {
       flex: 1,
       backgroundColor: '#E3E1D9',
     },
+    track: {
+      height: 4,
+      borderRadius: 2,
+    },
     thumb: {
-      left: -8,
-      top: -8,
-      width: 20,
-      height: 20,
-      backgroundColor: 'white',
-      borderColor: '#008DDA',
-      borderWidth: 5,
-      borderRadius: 10,
-    }
+      width: 25, 
+      height: 25, 
+      backgroundColor: 'transparent'
+    },
 }
