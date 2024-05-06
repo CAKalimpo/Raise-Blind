@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, Switch, Image, StyleSheet } from 'react-native';
 import arrowRight from '../imgs/arrow.png';
 import Slider from 'react-native-slider';
 import { styles } from '../style';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import States from './States';
 
 const RaiseBlind = ({ navigation }) => {
-  const [raiseBlind, setRaiseBlind] = useState(false);
-  const [raiseBlindInterval, setRaiseBlindInterval] = useState(3);
-  const [isSliding, setIsSliding] = useState(false);
-
-  const toggleBlind = () => setRaiseBlind(prevState => !prevState);
+  const {
+    raiseBlind,
+    raiseBlindInterval,
+    isSliding,
+    toggleBlind,
+    handleSliderComplete,
+    setRaiseBlindInterval,
+    setIsSliding
+  } = States(); // Use the custom hook
 
   const navigateBlinds = () => {
     navigation.navigate('Blinds Structure', {
@@ -21,11 +26,6 @@ const RaiseBlind = ({ navigation }) => {
 
   const handleSliderStart = () => {
     setIsSliding(true);
-  };
-
-  const handleSliderComplete = (value) => {
-    setRaiseBlindInterval(value);
-    setIsSliding(false);
   };
 
   // Function to generate marks based on slider min, max, and step
