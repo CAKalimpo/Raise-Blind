@@ -9,5 +9,4 @@ export const Fonts = {
     ISMS: 'InstrumentSans-SemiBold',
     ISMR: 'InstrumentSans-Regular',
     DMSR: 'DMS-Regular',
-  };
-  
+};
