@@ -1,15 +1,16 @@
-import React from 'react';
-import { View, Text, Switch, Image } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Switch, Image, StyleSheet } from 'react-native';
 import arrowRight from '../imgs/arrow.png';
 import Slider from 'react-native-slider';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles } from '../style';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const RaiseBlind = ({ navigation }) => {
-  const [raiseBlind, setRaiseBlind] = React.useState(false);
-  const [raiseBlindInterval, setRaiseBlindInterval] = React.useState(3);
+  const [raiseBlind, setRaiseBlind] = useState(false);
+  const [raiseBlindInterval, setRaiseBlindInterval] = useState(3);
+  const [isSliding, setIsSliding] = useState(false);
 
-  const toggleBlind = () => setRaiseBlind(previousState => !previousState);
+  const toggleBlind = () => setRaiseBlind(prevState => !prevState);
 
   const navigateBlinds = () => {
     navigation.navigate('Blinds Structure', {
@@ -18,12 +19,32 @@ const RaiseBlind = ({ navigation }) => {
     });
   };
 
+  const handleSliderStart = () => {
+    setIsSliding(true);
+  };
+
+  const handleSliderComplete = (value) => {
+    setRaiseBlindInterval(value);
+    setIsSliding(false);
+  };
+
+  const generateMarks = () => {
+    const marks = [];
+    for (let i = 3; i <= 7; i += 2) {
+      marks.push(
+        <View key={i} style={[styles.mark, i === raiseBlindInterval ? styles.selectedMark : null]} />
+      );
+    }
+    return marks;
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <View style={styles.rowContainer}>
           <Text style={styles.textStyle}>Blind Level Length</Text>
           <Switch
+            style={styles.toggleSwitch}
             trackColor={{ false: '#767577', true: '#0099ff' }}
             thumbColor={raiseBlind ? '#2D9596' : '#f4f3f4'}
             onValueChange={toggleBlind}
@@ -42,12 +63,17 @@ const RaiseBlind = ({ navigation }) => {
             minimumValue={3}
             maximumValue={7}
             step={2}
-            minimumTrackTintColor="#0099ff"
+            minimumTrackTintColor="#70c6ff"
             maximumTrackTintColor="#E3E1D9"
             onValueChange={value => setRaiseBlindInterval(value)}
+            onSlidingStart={handleSliderStart}
+            onSlidingComplete={handleSliderComplete}
             thumbStyle={styles.thumb}
-            thumbImage={require('../imgs/chip.png')} // Replace with your image path
+            thumbImage={require('../imgs/chip.png')}
           />
+          <View style={styles.markContainer}>
+            {generateMarks()}
+          </View>
         </View>
         <TouchableOpacity onPress={navigateBlinds}>
           <View style={styles.bottomView}>
