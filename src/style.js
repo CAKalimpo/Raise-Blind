@@ -28,10 +28,14 @@ export const styles = {
       fontSize: 13,
       fontFamily: Fonts.ISM,
     },
+    activeNumber: {
+      color: '#0099ff'
+    },
     slider: {
-      width: '95%',
+      width: '88%',
       padding: 10,
-      marginLeft: 12,
+      marginLeft: 22,
+      marginRight: 22,
       height: 3,
     },
     bottomView: {
@@ -66,8 +70,24 @@ export const styles = {
       borderRadius: 2,
     },
     thumb: {
-      width: 25, 
-      height: 25, 
-      backgroundColor: 'transparent'
+      width: 40, 
+      height: 40, 
+      backgroundColor: 'transparent',
+      margin: 0
+    },
+    markerContainer: {
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    markerText: {
+      color: '#000', // adjust color as needed
+      fontSize: 14, // adjust font size as needed
+    },
+    marker: {
+      width: 10, // adjust width as needed
+      height: 10, // adjust height as needed
+      backgroundColor: '#0099ff', // adjust background color as needed
+      borderRadius: 5, // ensure the marker is round
+      marginTop: -6, // adjust vertical position as needed to align with the slider
     },
 }

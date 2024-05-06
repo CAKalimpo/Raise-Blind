@@ -2,12 +2,12 @@ import React from 'react';
 import { View, Text, Switch, Image } from 'react-native';
 import arrowRight from '../imgs/arrow.png';
 import Slider from 'react-native-slider';
-import { styles } from '../style';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { styles } from '../style';
 
 const RaiseBlind = ({ navigation }) => {
   const [raiseBlind, setRaiseBlind] = React.useState(false);
-  const [raiseBlindInterval, setRaiseBlindInterval] = React.useState(0);
+  const [raiseBlindInterval, setRaiseBlindInterval] = React.useState(3);
 
   const toggleBlind = () => setRaiseBlind(previousState => !previousState);
 
@@ -31,23 +31,23 @@ const RaiseBlind = ({ navigation }) => {
           />
         </View>
         <View style={styles.numbersContainer}>
-          <Text style={styles.number}>3m</Text>
-          <Text style={styles.number}>5m</Text>
-          <Text style={styles.number}>7m</Text>
+          <Text style={[styles.number, raiseBlindInterval === 3 ? styles.activeNumber : null]}>3m</Text>
+          <Text style={[styles.number, raiseBlindInterval === 5 ? styles.activeNumber : null]}>5m</Text>
+          <Text style={[styles.number, raiseBlindInterval === 7 ? styles.activeNumber : null]}>7m</Text>
         </View>
         <View style={styles.sliderContainer}>
-        <Slider
-        style={styles.slider}
-        min={3}
-        max={7}
-        step={1}
-        minimumTrackTintColor="#0099ff"
-        maximumTrackTintColor="#E3E1D9"
-        onValueChange={value => setRaiseBlindInterval(value)}
-        trackStyle={styles.track}
-        thumbStyle={styles.thumb}
-        thumbImage={require('../imgs/chip.png')} // Replace with your image path
-      />
+          <Slider
+            style={styles.slider}
+            value={raiseBlindInterval}
+            minimumValue={3}
+            maximumValue={7}
+            step={2}
+            minimumTrackTintColor="#0099ff"
+            maximumTrackTintColor="#E3E1D9"
+            onValueChange={value => setRaiseBlindInterval(value)}
+            thumbStyle={styles.thumb}
+            thumbImage={require('../imgs/chip.png')} // Replace with your image path
+          />
         </View>
         <TouchableOpacity onPress={navigateBlinds}>
           <View style={styles.bottomView}>
@@ -61,4 +61,5 @@ const RaiseBlind = ({ navigation }) => {
     </View>
   );
 };
+
 export default RaiseBlind;
