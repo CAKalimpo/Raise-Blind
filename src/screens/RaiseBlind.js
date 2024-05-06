@@ -28,6 +28,7 @@ const RaiseBlind = ({ navigation }) => {
     setIsSliding(false);
   };
 
+  // Function to generate marks based on slider min, max, and step
   const generateMarks = () => {
     const marks = [];
     for (let i = 3; i <= 7; i += 2) {
@@ -45,7 +46,7 @@ const RaiseBlind = ({ navigation }) => {
           <Text style={styles.textStyle}>Blind Level Length</Text>
           <Switch
             style={styles.toggleSwitch}
-            trackColor={{ false: '#767577', true: '#0099ff' }}
+            trackColor={{ false: '#767577', true: '#22C3E6' }}
             thumbColor={raiseBlind ? '#2D9596' : '#f4f3f4'}
             onValueChange={toggleBlind}
             value={raiseBlind}
@@ -63,12 +64,13 @@ const RaiseBlind = ({ navigation }) => {
             minimumValue={3}
             maximumValue={7}
             step={2}
-            minimumTrackTintColor="#70c6ff"
+            minimumTrackTintColor="#22C3E6"
             maximumTrackTintColor="#E3E1D9"
             onValueChange={value => setRaiseBlindInterval(value)}
             onSlidingStart={handleSliderStart}
             onSlidingComplete={handleSliderComplete}
             thumbStyle={styles.thumb}
+            trackStyle={styles.track}
             thumbImage={require('../imgs/chip.png')}
           />
           <View style={styles.markContainer}>
@@ -79,8 +81,8 @@ const RaiseBlind = ({ navigation }) => {
           <View style={styles.bottomView}>
             <Text style={styles.bottomText}>
               Blinds Structure
-              <Image source={arrowRight} style={styles.arrowR}/>
             </Text>
+              <Image source={arrowRight} style={styles.arrowR}/>
           </View>
         </TouchableOpacity>
       </View>

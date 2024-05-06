@@ -8,13 +8,14 @@ export const styles = {
   },
   card: {
     backgroundColor: 'white',
-    padding: 10,
+    padding: 15,
     width: '100%',
   },
   rowContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    top: -10,
   },
   textStyle: {
     fontFamily: Fonts.ISM,
@@ -22,20 +23,24 @@ export const styles = {
   numbersContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 15,
+    textAlign: 'center',
+    padding: 12,
+    top: -10,
+    marginLeft: 4,
   },
   number: {
-    fontSize: 13,
+    fontSize: 12,
     fontFamily: Fonts.ISM,
   },
   activeNumber: {
-    color: '#70c6ff'
+    color: '#03AED2'
   },
   slider: {
     width: '92%',
-    height: 5,
-    marginLeft: 15,
+    height: 2,
+    marginLeft: 20,
     padding: 5,
+    top: -5,
   },
   slideContainer: {
     alignItems: 'center',
@@ -47,11 +52,16 @@ export const styles = {
   },
   bottomText: {
     fontFamily: Fonts.ISM,
-    color: '#0099ff',
-    marginTop: 5,
+    marginLeft: 10,
+    fontSize: 14,
+    color: '#22C3E6',
+    marginTop: 18,
   },
   arrowR: {
-    marginRight: 15,
+    position: 'absolute',
+    right: 68,
+    top: 21,
+
   },
   blindButton: {
     flex: 1,
@@ -69,7 +79,7 @@ export const styles = {
     backgroundColor: '#E3E1D9',
   },
   track: {
-    height: 4,
+    height: 3,
     borderRadius: 2,
   },
   thumb: {
@@ -85,16 +95,17 @@ export const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '90%',
-    marginLeft: 16,
-    marginTop: -11,
+    marginLeft: 19,
+    marginTop: -15,
   },
   mark: {
-    width: 13,
-    height: 13,
-    backgroundColor: '#70c6ff',
+    width: 10,
+    height: 10,
+    backgroundColor: '#22C3E6',
     borderRadius: 20,
   },
   selectedMark: {
     backgroundColor: 'transparent',
   },
+
 };
